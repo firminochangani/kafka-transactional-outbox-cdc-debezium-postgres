@@ -47,3 +47,11 @@ curl --request POST \
 }'
 ```
 
+## Notes
+
+Things to address:
+
+- Event removal from the outbox table;
+- Ensure the connector only subscribes to INSERT operations over the outbox table;
+- Prevent removal of unread events (replication lag);
+- Failed Debezium tasks: retry, and monitor;
