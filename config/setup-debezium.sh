@@ -10,4 +10,5 @@ curl -sf http://localhost:8083/connectors >/dev/null 2>&1 \
 curl -sf -X PUT -H 'Content-Type: application/json' \
   --data-binary @"$(dirname "$0")/debezium/outbox-connector.json" \
   http://localhost:8083/connectors/outbox-connector/config
+
 echo "Outbox connector registered"

@@ -1,14 +1,6 @@
 -- +goose Up
 CREATE SCHEMA orders_svc;
 
-CREATE TABLE orders_svc.outbox (
-    id            BIGSERIAL PRIMARY KEY,
-    aggregateid   TEXT NOT NULL,
-    aggregatetype TEXT NOT NULL,
-    type          TEXT NOT NULL,
-    payload       JSONB NOT NULL
-);
-
 CREATE TABLE orders_svc.orders (
     id TEXT PRIMARY KEY,
     customer_id TEXT NOT NULL,
@@ -25,6 +17,14 @@ CREATE TABLE orders_svc.order_items (
 
     CONSTRAINT un_product_id_order_id UNIQUE(product_id, order_id),
     CONSTRAINT fk_order_id FOREIGN KEY (order_id) REFERENCES orders_svc.orders(id)
+);
+
+CREATE TABLE orders_svc.outbox (
+    id            BIGSERIAL PRIMARY KEY,
+    aggregateid   TEXT NOT NULL,
+    aggregatetype TEXT NOT NULL,
+    type          TEXT NOT NULL,
+    payload       JSONB NOT NULL
 );
 
 -- +goose Down

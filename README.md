@@ -5,7 +5,7 @@
 - [x] Set up Kafka, Postgres and Debezium via `docker-compose`;
 - [x] Write a producer that stores orders into Postgres and publishes `OrderPlaced` event into an outbox table;
 - [x] Route events in the outbox table to the topic `work.firmino.orders`;
-- [ ] Write a consumer that consume events from `work.firmino.orders` topic;
+- [x] Write a consumer that consume events from `work.firmino.orders` topic;
 
 ## Out of scope
 
