@@ -55,3 +55,11 @@ Things to address:
 - Ensure the connector only subscribes to INSERT operations over the outbox table;
 - Prevent removal of unread events (replication lag);
 - Failed Debezium tasks: retry, and monitor;
+
+## Improvements
+
+- Move the outbox outside the orders_svc schema;
+- Support multiple topics:
+  - Multi outbox tables?
+  - One outbox table with smart routing?
+- Document the implementation;
